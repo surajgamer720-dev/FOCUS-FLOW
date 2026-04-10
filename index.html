@@ -18,6 +18,13 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Focus Flow">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%236c63ff'/%3E%3Ccircle cx='90' cy='90' r='65' fill='none' stroke='white' stroke-width='12'/%3E%3Cpath d='M90 45 L90 90 L118 105' stroke='white' stroke-width='12' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+  
   <style>
     /* ========================================
        CSS CUSTOM PROPERTIES & RESET
@@ -725,12 +732,15 @@
       background: var(--break-color);
     }
 
-    /* Timer Container with Progress Ring */
+      /* Timer Container with Progress Ring */
     .timer-container {
       position: relative;
       width: 280px;
       height: 280px;
       margin: 0 auto 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .progress-ring {
@@ -766,6 +776,10 @@
       transform: translate(-50%, -50%);
       text-align: center;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .timer-time {
@@ -2158,6 +2172,295 @@
 
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ========================================
+       RESPONSIVE DESIGN
+       ======================================== */
+    @media (max-width: 320px) {
+      .app {
+        padding: 12px;
+        gap: 12px;
+      }
+      
+      .glass-card {
+        padding: 16px;
+        border-radius: 20px;
+      }
+      
+      .timer-card {
+        padding: 24px 16px;
+      }
+      
+      .timer-container {
+        width: 220px;
+        height: 220px;
+      }
+      
+      .timer-time {
+        font-size: 48px;
+      }
+      
+      .mode-label {
+        font-size: 12px;
+      }
+      
+      .session-dot {
+        width: 6px;
+        height: 6px;
+      }
+      
+      .btn-primary {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
+      }
+      
+      .btn-secondary {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+      
+      .sound-card, .task-card {
+        padding: 12px;
+      }
+      
+      .sound-select {
+        padding: 10px 28px 10px 12px;
+        font-size: 13px;
+      }
+      
+      .volume-slider {
+        width: 80px;
+      }
+      
+      .stats-bar {
+        padding: 12px;
+      }
+      
+      .stat-value {
+        font-size: 16px;
+      }
+      
+      .stat-label {
+        font-size: 9px;
+      }
+      
+      .achievements-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+      }
+      
+      .achievement {
+        padding: 8px 4px;
+      }
+      
+      .achievement-icon {
+        font-size: 18px;
+      }
+      
+      .achievement-name {
+        font-size: 7px;
+      }
+      
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+      
+      .logo-text h1 {
+        font-size: 16px;
+      }
+      
+      .logo-text span {
+        font-size: 9px;
+      }
+      
+      .header-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+      }
+      
+      .quick-task {
+        font-size: 10px;
+        padding: 4px 8px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .app {
+        max-width: 600px;
+        padding: 32px 24px;
+        gap: 20px;
+      }
+      
+      .glass-card {
+        padding: 28px;
+      }
+      
+      .timer-card {
+        padding: 40px 32px;
+      }
+      
+      .timer-container {
+        width: 320px;
+        height: 320px;
+        margin-bottom: 40px;
+      }
+      
+      .progress-ring-bg,
+      .progress-ring-fill {
+        stroke-width: 10;
+      }
+      
+      .timer-time {
+        font-size: 96px;
+      }
+      
+      .timer-task {
+        font-size: 16px;
+        max-width: 250px;
+      }
+      
+      .btn-primary {
+        width: 72px;
+        height: 72px;
+        font-size: 28px;
+      }
+      
+      .btn-secondary {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
+      }
+      
+      .sound-card, .task-card {
+        padding: 20px 24px;
+      }
+      
+      .stats-bar {
+        padding: 20px;
+      }
+      
+      .stat-value {
+        font-size: 24px;
+      }
+      
+      .stat-label {
+        font-size: 12px;
+      }
+      
+      .achievements-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+      
+      .achievement {
+        padding: 16px;
+      }
+      
+      .achievement-icon {
+        font-size: 28px;
+      }
+      
+      .achievement-name {
+        font-size: 10px;
+      }
+      
+      .chart-container {
+        height: 120px;
+      }
+      
+      .quote-text {
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .app {
+        max-width: 680px;
+        padding: 40px 32px;
+      }
+      
+      .timer-container {
+        width: 360px;
+        height: 360px;
+      }
+      
+      .timer-time {
+        font-size: 108px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .app {
+        max-width: 720px;
+      }
+    }
+
+    /* Landscape orientation adjustments */
+    @media (orientation: landscape) and (max-height: 500px) {
+      .app {
+        padding: 16px;
+        gap: 12px;
+      }
+      
+      .timer-card {
+        padding: 16px;
+      }
+      
+      .timer-container {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .timer-time {
+        font-size: 40px;
+      }
+      
+      .timer-controls {
+        gap: 12px;
+      }
+      
+      .btn-primary {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+      }
+      
+      .btn-secondary {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .glass-card {
+        border-width: 0.5px;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      
+      .bg-effects, .noise-overlay, .toast-container {
+        display: none;
+      }
+      
+      .glass-card {
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: none;
+      }
     }
   </style>
 </head>
@@ -4581,7 +4884,241 @@
     // ========================================
     document.addEventListener('DOMContentLoaded', () => {
       window.focusFlow = new FocusFlow();
+      
+      // Register Service Worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js')
+            .then(registration => {
+              console.log('SW registered:', registration);
+              
+              // Check for updates periodically
+              setInterval(() => {
+                registration.update();
+              }, 60 * 60 * 1000); // Check every hour
+            })
+            .catch(error => {
+              console.log('SW registration failed:', error);
+            });
+        });
+        
+        // Listen for SW messages
+        navigator.serviceWorker.addEventListener('message', (event) => {
+          if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
+            showUpdateNotification(event.data.version);
+          }
+        });
+      }
+      
+      // Show install prompt for PWA
+      setupPWAInstallPrompt();
     });
+
+    // PWA Install Prompt
+    let deferredPrompt;
+    const installBanner = document.createElement('div');
+    installBanner.id = 'pwa-install-banner';
+    installBanner.innerHTML = `
+      <div class="pwa-install-content">
+        <div class="pwa-install-icon">
+          <i class="fas fa-download"></i>
+        </div>
+        <div class="pwa-install-text">
+          <strong>Install Focus Flow</strong>
+          <span>Add to home screen for quick access</span>
+        </div>
+        <button class="pwa-install-btn" id="pwa-install-btn">
+          <i class="fas fa-plus"></i> Install
+        </button>
+        <button class="pwa-dismiss-btn" id="pwa-dismiss-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    `;
+
+    function setupPWAInstallPrompt() {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        // Show install banner (after 3 seconds)
+        setTimeout(() => {
+          // Check if user previously dismissed
+          if (!localStorage.getItem('pwaInstallDismissed')) {
+            showInstallBanner();
+          }
+        }, 3000);
+      });
+    }
+
+    function showInstallBanner() {
+      if (document.getElementById('pwa-install-banner')) return;
+      
+      document.body.appendChild(installBanner);
+      
+      // Add styles dynamically
+      const style = document.createElement('style');
+      style.textContent = `
+        #pwa-install-banner {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1000;
+          animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+        
+        .pwa-install-content {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          background: var(--glass-bg);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid var(--glass-border);
+          border-radius: 16px;
+          padding: 12px 16px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pwa-install-icon {
+          width: 40px;
+          height: 40px;
+          background: var(--accent);
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 16px;
+        }
+        
+        .pwa-install-text {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+        }
+        
+        .pwa-install-text strong {
+          font-size: 14px;
+          color: var(--text-primary);
+        }
+        
+        .pwa-install-text span {
+          font-size: 11px;
+          color: var(--text-secondary);
+        }
+        
+        .pwa-install-btn {
+          background: var(--accent);
+          border: none;
+          border-radius: 8px;
+          padding: 8px 16px;
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          transition: transform 0.2s;
+        }
+        
+        .pwa-install-btn:hover {
+          transform: scale(1.05);
+        }
+        
+        .pwa-dismiss-btn {
+          background: none;
+          border: none;
+          color: var(--text-tertiary);
+          cursor: pointer;
+          padding: 4px;
+          font-size: 12px;
+        }
+        
+        .pwa-dismiss-btn:hover {
+          color: var(--text-secondary);
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Install button click
+      document.getElementById('pwa-install-btn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            showToast('Focus Flow installed!', 'success');
+          }
+          deferredPrompt = null;
+        }
+        hideInstallBanner();
+      });
+      
+      // Dismiss button click
+      document.getElementById('pwa-dismiss-btn').addEventListener('click', () => {
+        localStorage.setItem('pwaInstallDismissed', 'true');
+        hideInstallBanner();
+      });
+    }
+
+    function hideInstallBanner() {
+      const banner = document.getElementById('pwa-install-banner');
+      if (banner) {
+        banner.style.animation = 'slideDown 0.3s ease forwards';
+        setTimeout(() => banner.remove(), 300);
+      }
+    }
+
+    // Add slideDown animation
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+      @keyframes slideDown {
+        to {
+          opacity: 0;
+          transform: translateX(-50%) translateY(20px);
+        }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+
+    // Show update notification
+    function showUpdateNotification(version) {
+      showToast(`🔄 New version ${version} available! Refresh to update.`, 'info');
+      
+      // Add refresh button
+      const refreshBtn = document.createElement('button');
+      refreshBtn.className = 'settings-btn settings-btn-secondary';
+      refreshBtn.style.marginTop = '12px';
+      refreshBtn.innerHTML = '<i class="fas fa-refresh"></i> Update Now';
+      refreshBtn.onclick = () => window.location.reload();
+      
+      // This would typically show in a modal, but we'll just show a toast
+    }
+
+    // Add CSS for slideDown animation
+    const style2 = document.createElement('style');
+    style2.textContent = `
+      @keyframes slideDown {
+        to {
+          opacity: 0;
+          transform: translateX(-50%) translateY(20px);
+        }
+      }
+    `;
+    document.head.appendChild(style2);
   </script>
 </body>
 </html>
